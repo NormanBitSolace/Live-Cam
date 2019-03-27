@@ -36,7 +36,7 @@ class ListViewController: UIViewController {
 
 ### Real World Example
 
-Displaying models from an async source with a custom `UITableViewCell` subclass.
+Displaying models from an async source with a custom `UITableViewCell` subclass. This is the code used to implement this project.
 
 ```swift
 final class TopicChooserViewController: UIViewController {
@@ -68,7 +68,8 @@ final class TopicChooserViewController: UIViewController {
 }
 ```
 
-### Caveat
-It is necessary to create a `TableViewDelegate` member in the view controller to maintain a reference because `UITableView` holds `UITableViewDataSource` and `UITableViewDelegate` with weak references.
+### Caveats
+1. It is necessary to create a `TableViewDelegate` member in the view controller to maintain a reference because `UITableView` holds `UITableViewDataSource` and `UITableViewDelegate` with weak references.
+1. When instantiating `TableViewDelegate` with a cell type it is assumed the cell identifier used to dequeue is the cell type's name e.g. if the cell's type is MyCellType, the cell identifier is "MyCellType".
 
 Swift Talk did a very interesting episode [Generic Table View Controllers](https://talk.objc.io/episodes/S01E6-generic-table-view-controllers).
